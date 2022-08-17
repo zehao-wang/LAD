@@ -6,24 +6,45 @@ Matterport3DSimulator docker env [link](https://github.com/peteanderson80/Matter
 
 ## Data preparation
 The data preparation including two step, preprocessing for image generation and token id extraction
+
+### Downloads
+1. Follow the insturction in [vln-duet](https://github.com/cshizhe/VLN-DUET), or download data from [Dropbox](https://www.dropbox.com/sh/u3lhng7t2gq36td/AABAIdFnJxhhCg2ItpAhMtUBa?dl=0) including processed annotations, features. Unzip the ```REVERIE``` and ```R2R``` folder into ```datasets```
+
+2. Since we mainly use CLIP as our visual feature encoder, please follow the instruction in [link](https://github.com/openai/CLIP) and make sure to load ```ViT-L-14-336px.pt``` during training.
+3. Make sure to install [GLIDE](https://github.com/openai/glide-text2im) for generation 
+4. Download Matterport3D dataset from [link](https://niessner.github.io/Matterport/)
+
+
 ### Preprocessing
+1. Generate imagined image of goal position 
+Set datapath for generating REVERIE or SOON in the ge_ins2img_feats.py first 
+then run : 
+```
+python ge_ins2img_feats.py --encoder clip --dataset reverie \
+--input_dir datasets/REVERIE/annotations/REVERIE_{split}_enc.json \
+--clip_save_dir datasets/REVERIE/features/reverie_ins2img_clip.h5 \
+--collect_clip
+```
+Put the generated data in the directory ```datasets/REVERIE/features```
+
+2. The room type codebook ```room_type_feats.h5``` has been provided at root directory
 
 ### Data arrangement
-
+1. Make sure the ```datasets``` folder under root ```lad_src```
+2. link matterport dataset to ```mp3d``` under ```lad_src``` folder
+The structure  of these two dataset folders should be organized as
 ```
-datasets
+lad_src
 ├──  datasets
-│     └── full_reverie_ins2img_clip.h5
+│    ├── REVERIE
+│    │    ├── annotations
+│    │    └── features
+│    │        ├── obj.avg.top3.min80_vit_base_patch16_224_imagenet.hdf5 
+│    │        └── full_reverie_ins2img_clip.h5
+|    └── R2R
 ├──  mp3d
-│   └── v1/scans # where the simulator scans stored
-└── 
-```
-
-link matterport dataset to ```mp3d``` under ```lad_src``` folder, the structure should be 
-```
-mp3d
-└── v1
-     └── scans
+│    └── v1
+          └── scans
 ```
 
 ## Running scripts
