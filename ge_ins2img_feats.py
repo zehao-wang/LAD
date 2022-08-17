@@ -20,11 +20,26 @@ import torch
 import numpy as np 
 import random 
 import jsonlines 
+import argparse
 
 REVERIE_DATA_ROOT="../datasets/REVERIE/annotations/REVERIE_{split}_enc.json"
 SOON_DATA_ROOT="../datasets/SOON/annotations/bert_enc/val_unseen_house_enc.jsonl"
-SPLITS = ["val_unseen_test"]
+SPLITS_SOON = ["val_unseen_house","val_unseen_instrs","test","train"]
+SPLIT_REVERIE = ["val_unseen","val_seen","train","test"]
 
+
+def parser_args():
+    parser = argparse.ArgumentParser(description="")
+    parser.add_argument('--input_dir', type=str, help='should be the format of ../{split}_enc.json',default='.',)
+    parser.add_argument('--img_save_dir', type=str, default='.')
+    parser.add_argument('--imgnet_save_dir',type=str, default='.')
+    parser.add_argument('--clip_save_dir',type=str,default='.')
+    parser.add_argument('--dataset', choices=['reverie','soon'])
+    parser.add_argument('--collect_clip', action='store_true', default=False)
+    parser.add_argument('--collect_imgnet',action='store_true',default=False)
+    args, _ = parser.parse_known_args()
+    return args
+    
 def load_instr_datasets(anno_dir,split):
     file_path = anno_dir.format(split=split)
     with open(file_path) as f:
@@ -217,9 +232,15 @@ def get_vision_model(model_name="imgnet_resnet152"):
         return resnet152
 
 if __name__ == "__main__":
-    collect_clip_feats = True 
-    collect_imgnet_feats = True 
-
+    args = parse_args()
+    if args.dataset == 'reverie':
+        splits = SPLIT_REVERIE
+    elif args.dataset == 'soon':
+        splits = SPLITS_SOON
+        
+    collect_clip_feats = args.collect_clip 
+    collect_imgnet_feats = args.collect_imgnet
+  
     has_cude = th.cuda.is_available()
     device = th.device('cpu' if not has_cude else 'cuda')
     to_tensor = transforms.Compose(
@@ -251,23 +272,27 @@ if __name__ == "__main__":
         imgnet_resnet = imgnet_resnet.to(device)
     if collect_clip_feats:
         clip_model, clip_preprocess = load_clip_model(model_name="ViT-L/14@336px")
+ 
+    for split in splits:
 
-    for split in SPLITS:
-
-        #img_file = h5py.File("/staging/leuven/stg_00095/mingxiao/reverie/feats/{split}_reverie_ins_to_imgs.h5".format(split=split), "w")
-        img_file = h5py.File("/staging/leuven/stg_00095/mingxiao/reverie/feats/{split}_soon_ins_to_imgs.h5".format(split=split), "w")
+       
+        img_save_dir = args.img_save_dir.format(split=split)
+        img_file = h5py.File(img_save_dir, "w")
     
         if collect_imgnet_feats:
-            #save_dir = "/staging/leuven/stg_00095/mingxiao/reverie/feats/{split}_reverie_ins2img_imgnet_feats.h5".format(split=split)
-            save_dir = "/staging/leuven/stg_00095/mingxiao/reverie/feats/{split}_soon_ins2img_imgnet_feats.h5".format(split=split)
+            
+            save_dir = args.imgnet_save_dir.format(split=split)
             imgnet_feats_file = h5py.File(save_dir,"w")
         if collect_clip_feats:
-            #save_dir = "/staging/leuven/stg_00095/mingxiao/reverie/feats/{split}_reverie_ins2img_clip_feats.h5".format(split=split)
-            save_dir = "/staging/leuven/stg_00095/mingxiao/reverie/feats/{split}_soon_ins2img_clip_feats.h5".format(split=split)
+            
+            save_dir = args.clip_save_dir.format(split=split)
             clip_visual_feats_file = h5py.File(save_dir,"w")
-        
-        #instrs = construct_instrs(REVERIE_DATA_ROOT, split)
-        instrs = load_soon_datasets(SOON_DATA_ROOT)
+            
+        if args.dataset == 'reverie':
+            instrs = construct_instrs(args.input_dir, split)
+        elif args.dataset == 'soon':
+            instrs = load_soon_datasets(args.input_dir, split)
+       
         total_ins = len(instrs)
         for n , ins in enumerate(instrs):
 
@@ -279,17 +304,14 @@ if __name__ == "__main__":
                 imgnet_input_images = []
             if collect_clip_feats:
                 clip_input_images = []
-            #for _ in range(img_batch_size):
+          
             image_array, samples = text2image(instruction, model, diffusion, options, batch_size, device, guidance_scale)
             image_up_array, sample_up = upsample_img(instruction, model_up, difficusion_up, options_up, samples, batch_size, upsample_temp, device)
         
-            # for i in range(image_array.shape[0]):
-            #     img = Image.fromarray(image_array[i])
-            #     img.save("./tmp/test_img_"+str(i)+".jpeg")
             
             for k in range(image_up_array.shape[0]):
                 img_up = Image.fromarray(image_up_array[k])
-                # img_up.save("./tmp/test_img_up_"+str(k)+".jpeg")
+               
                 if collect_imgnet_feats:
                     image_input = to_tensor(img_up)
                     image_input = image_input.unsqueeze(0)
