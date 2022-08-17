@@ -17,10 +17,8 @@ The data preparation including two step, preprocessing for image generation and 
 
 ### Preprocessing
 1. Generate imagined image of goal position 
-Set datapath for generating REVERIE or SOON in the ge_ins2img_feats.py first 
-then run : 
 ```
-python ge_ins2img_feats.py --encoder clip --dataset reverie \
+python preprocess/ge_ins2img_feats.py --encoder clip --dataset reverie \
 --input_dir datasets/REVERIE/annotations/REVERIE_{split}_enc.json \
 --clip_save_dir datasets/REVERIE/features/reverie_ins2img_clip.h5 \
 --collect_clip
@@ -28,6 +26,20 @@ python ge_ins2img_feats.py --encoder clip --dataset reverie \
 Put the generated data in the directory ```datasets/REVERIE/features```
 
 2. The room type codebook ```room_type_feats.h5``` has been provided at root directory
+
+### Generate CLIP features for Matterport3 environment
+1. Setup the output path and Matterport3D connectivity path in ```preprocess/get_all_imgs_fts.py```   
+   Run bellow to get tsv file.    
+   ```
+      python preprocess/get_all_imgs_fts.py
+   ```
+
+2. Download the vit feature following [VLN-DUET](https://github.com/cshizhe/VLN-DUET) and put it in the directore of ```datasets/REVERIE/features```      
+   Setup path in preprocess/convert_tsv2h5.py   
+   Run to get .h5 file and put is in the directory ```datasets/REVERIE/features```   
+   ```
+   python preprocess/convert_tsv2h5.py
+   ```
 
 ### Data arrangement
 1. Make sure the ```datasets``` folder under root ```lad_src```
