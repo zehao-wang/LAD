@@ -23,7 +23,7 @@ FEATURE_SIZE = 768
 BATCH_SIZE = 4 
 GPU_ID = 0 
 # TODO : set model name and path to save model
-OUPUTFILE = "/scratch/leuven/333/vsc33366/reverie_imgs/viewid2img_clip.tsv" 
+OUPUTFILE = "./viewid2img_clip.tsv" 
 GRAPHTS = "../../datasets/REVERIE/connectivity/"
 
 # Simulator image parameters
@@ -222,7 +222,7 @@ if __name__ == '__main__':
     build_tsv()
     # data = read_tsv(OUPUTFILE)
     # print("Completed %d viewpoints" % len(data))
-    get_feature_for_room_type("../datasets/REVERIE/features/room_type_feats_test.h5")
+    # get_feature_for_room_type("../datasets/REVERIE/features/room_type_feats_test.h5")
 
                 
 
