@@ -19,9 +19,9 @@ datasets
 └── 
 ```
 
-```
+#### Download data
 Follow the insturction in [link](https://github.com/cshizhe/VLN-DUET), or download data from [link](https://www.dropbox.com/sh/u3lhng7t2gq36td/AABAIdFnJxhhCg2ItpAhMtUBa?dl=0) including processed annotations, features. 
-```
+
 
 link matterport dataset to ```mp3d``` under ```lad_src``` folder, the structure should be 
 ```
