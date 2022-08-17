@@ -22,6 +22,10 @@ datasets
 #### Download data
 Follow the insturction in [vln-duet](https://github.com/cshizhe/VLN-DUET), or download data from [Dropbox](https://www.dropbox.com/sh/u3lhng7t2gq36td/AABAIdFnJxhhCg2ItpAhMtUBa?dl=0) including processed annotations, features. 
 
+Clip feature or room type codebook visual feature can obtained by run:
+```
+python get_all_imgs_feats.py
+```
 
 link matterport dataset to ```mp3d``` under ```lad_src``` folder, the structure should be 
 ```
