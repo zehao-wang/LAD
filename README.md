@@ -32,9 +32,9 @@ mp3d
 #### Generate instruction images using GLIDE
 Set datapath in the ge_ins2img_feats.py first 
 then run : 
-'''
+```
 python ge_ins2img_feats.py 
-'''
+```
 #### Warmup stage - phase1 training with augmentation data for single-action prediction
 ```bash 
 cd warmup_src
