@@ -3,9 +3,7 @@ import json
 import jsonlines
 import h5py
 import numpy as np
-from ipdb import set_trace 
 import sys 
-sys.path.append('/data/leuven/333/vsc33366/projects/REVERIE_PRJ/map_nav_src')
 from utils.data import angle_feature
 
 class ObjectFeatureDB(object):
