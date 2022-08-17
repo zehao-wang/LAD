@@ -3,7 +3,7 @@ NUM_GPUS=1
 DATA_ROOT=../datasets
 warmup_steps=50000
 outdir=../out/REVERIE/experiments/pretrain/frt_gd_phase2
-rt_img_dir=${DATA_ROOT}/REVERIE/features/room_type_feats.h5
+rt_img_dir=../room_type_feats.h5
 
 # Phase 2 init ckpt
 phase_ckpt=../out/REVERIE/experiments/pretrain/frt_gd_phase1/ckpts/model_step_48000.pt

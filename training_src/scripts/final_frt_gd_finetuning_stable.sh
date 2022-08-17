@@ -7,7 +7,7 @@ features=clip
 ft_dim=768
 obj_features=vitbase
 obj_ft_dim=768
-rp_img_dir=${DATA_ROOT}/REVERIE/features/room_type_feats.h5
+rp_img_dir=../room_type_feats.h5
 
 ngpus=1
 seed=0 # default 0

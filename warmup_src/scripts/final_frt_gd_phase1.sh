@@ -2,7 +2,7 @@ NODE_RANK=0
 NUM_GPUS=1
 DATA_ROOT=../datasets
 outdir=../out/REVERIE/experiments/pretrain/frt_gd_phase1
-rt_img_dir=${DATA_ROOT}/REVERIE/features/room_type_feats.h5
+rt_img_dir=../room_type_feats.h5
 
 # train
 PYTHONPATH="../":$PYTHONPATH /usr/bin/python3 -m torch.distributed.launch \
