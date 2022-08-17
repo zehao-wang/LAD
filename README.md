@@ -17,9 +17,6 @@ The data preparation including two step, preprocessing for image generation and 
 
 ### Preprocessing
 1. Generate imagined image of goal position 
-
-Set data path for generating REVERIE in the ```preprocess/ge_ins2img_feats.py``` first 
-then run : 
 ```
 python preprocess/ge_ins2img_feats.py --encoder clip --dataset reverie \
 --input_dir datasets/REVERIE/annotations/REVERIE_{split}_enc.json \
