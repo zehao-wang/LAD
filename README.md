@@ -20,9 +20,10 @@ The data preparation including two step, preprocessing for image generation and 
 Set datapath for generating REVERIE or SOON in the ge_ins2img_feats.py first 
 then run : 
 ```
-python ge_ins2img_feats.py --split {split} --encoder clip \
+python ge_ins2img_feats.py --encoder clip --dataset reverie \
 --input_dir datasets/REVERIE/annotations/REVERIE_{split}_enc.json \
---save_dir datasets/REVERIE/features/reverie_ins2img_clip.h5
+--clip_save_dir datasets/REVERIE/features/reverie_ins2img_clip.h5 \
+--collect_clip
 ```
 Put the generated data in the directory ```datasets/REVERIE/features```
 
