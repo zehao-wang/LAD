@@ -11,7 +11,7 @@ The data preparation including two step, preprocessing for image generation and 
 1. Follow the insturction in [vln-duet](https://github.com/cshizhe/VLN-DUET), or download data from [Dropbox](https://www.dropbox.com/sh/u3lhng7t2gq36td/AABAIdFnJxhhCg2ItpAhMtUBa?dl=0) including processed annotations, features. Unzip the ```REVERIE``` and ```R2R``` folder into ```datasets```
 
 2. Since we mainly use CLIP as our visual feature encoder, please follow the instruction in [link](https://github.com/openai/CLIP) and make sure to load ```ViT-L-14-336px.pt``` during training.
-3. Make sure to install GLIDE for generation [GLIDE](https://github.com/openai/glide-text2im)
+3. Make sure to install [GLIDE](https://github.com/openai/glide-text2im) for generation 
 
 
 ### Preprocessing
