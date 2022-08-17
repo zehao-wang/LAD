@@ -33,9 +33,9 @@ Put the generated data in the directory ```datasets/REVERIE/features```
 ### Generate CLIP features for Matterport3 environment
 1. Setup the output path and Matterport3D connectivity path in ```preprocess/get_all_imgs_fts.py```   
    Run bellow to get tsv file.    
-```
-python preprocess/get_all_imgs_fts.py
-```
+   ```
+      python preprocess/get_all_imgs_fts.py
+   ```
 
 2. Download the vit feature following [VLN-DUET](https://github.com/cshizhe/VLN-DUET) and put it in the directore of ```datasets/REVERIE/features```      
    Setup path in preprocess/convert_tsv2h5.py   
