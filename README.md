@@ -29,6 +29,9 @@ mp3d
 ## Running scripts
 
 > Since ins2img consume too much disk space in our situition, for augmentation data in phase1, we do not include goal dreamer in the warmup training
+#### Generate instruction images using GLIDE
+Set datapath in the ge_ins2img_feats.py first 
+then run : python ge_ins2img_feats.py 
 
 #### Warmup stage - phase1 training with augmentation data for single-action prediction
 ```bash 
