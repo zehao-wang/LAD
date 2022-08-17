@@ -14,9 +14,9 @@ VIEWPOINT_SIZE = 36
 FEATURE_SIZE = 768
 
 if __name__ =="__main__":
-    h5_path = "../datasets/R2R/features/pth_vit_base_patch16_224_imagenet.hdf5"
-    tsv_root = "/scratch/leuven/333/vsc33366/reverie_imgs/"
-    dump_h5_path = "../datasets/R2R/features/pth_clip_vit_l_14_336px.hdf5"
+    h5_path = "../datasets/R2R/features/pth_vit_base_patch16_224_imagenet.hdf5" 
+    tsv_root = "/scratch/leuven/333/vsc33366/reverie_imgs/"  # path of tsv file
+    dump_h5_path = "../datasets/R2R/features/pth_clip_vit_l_14_336px.hdf5" # path to save h5 file 
     with h5py.File(h5_path, "r") as f:
         keys = list(f.keys())
         print(f[keys[0]][...].shape)
