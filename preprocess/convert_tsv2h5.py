@@ -14,7 +14,7 @@ FEATURE_SIZE = 768
 
 if __name__ =="__main__":
     h5_path = "../datasets/R2R/features/pth_vit_base_patch16_224_imagenet.hdf5" 
-    tsv_root = "/scratch/leuven/333/vsc33366/reverie_imgs/"  # path of tsv file
+    tsv_root = "path of tsv file generate using get_all_imgs_fts.py"  # path of tsv file
     dump_h5_path = "../datasets/R2R/features/pth_clip_vit_l_14_336px.hdf5" # path to save h5 file 
     with h5py.File(h5_path, "r") as f:
         keys = list(f.keys())
