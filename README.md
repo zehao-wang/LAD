@@ -36,7 +36,7 @@ Put the generated data in the directory ```datasets/REVERIE/features```
 python preprocess/get_all_imgs_fts.py
 ```
 
-3. Download the vit feature following the above instruction and put it in the directore of ```datasets/REVERIE/features```。 
+3. Download the vit feature following the above instruction and put it in the directore of ```datasets/REVERIE/features```      
    Setup path in preprocess/convert_tsv2h5.py   
    Run to get .h5 file and put is in the directory ```datasets/REVERIE/features```   
    ```
