@@ -28,21 +28,20 @@ Put the generated data in the directory ```datasets/REVERIE/features```
 
 ### Data arrangement
 1. Make sure the ```datasets``` folder under root ```lad_src```
-
+2. link matterport dataset to ```mp3d``` under ```lad_src``` folder
+The structure  of these two dataset folders should be organized as
 ```
-datasets
+lad_src
 ├──  datasets
-│     └── full_reverie_ins2img_clip.h5
+│    ├── REVERIE
+│    │    ├── annotations
+│    │    └── features
+│    │        ├── obj.avg.top3.min80_vit_base_patch16_224_imagenet.hdf5 
+│    │        └── full_reverie_ins2img_clip.h5
+|    └── R2R
 ├──  mp3d
-│   └── v1/scans # where the simulator scans stored
-└── 
-```
-
-2. link matterport dataset to ```mp3d``` under ```lad_src``` folder, the structure should be 
-```
-mp3d
-└── v1
-     └── scans
+│    └── v1
+          └── scans
 ```
 
 ## Running scripts
