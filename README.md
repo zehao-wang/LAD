@@ -12,6 +12,7 @@ The data preparation including two step, preprocessing for image generation and 
 
 2. Since we mainly use CLIP as our visual feature encoder, please follow the instruction in [link](https://github.com/openai/CLIP) and make sure to load ```ViT-L-14-336px.pt``` during training.
 3. Make sure to install [GLIDE](https://github.com/openai/glide-text2im) for generation 
+4. Download Matterport3D dataset from [link](https://niessner.github.io/Matterport/)
 
 
 ### Preprocessing
