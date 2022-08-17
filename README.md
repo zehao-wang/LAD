@@ -28,7 +28,7 @@ mp3d
 
 ## Running scripts
 
-> Since ins2img consum too much disk space in our situition, for augmentation data in phase1, we do not include goal dreamer in the warmup training
+> Since ins2img consume too much disk space in our situition, for augmentation data in phase1, we do not include goal dreamer in the warmup training
 
 #### Warmup stage - phase1 training with augmentation data for single-action prediction
 ```bash 
