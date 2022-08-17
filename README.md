@@ -25,7 +25,7 @@ python ge_ins2img_feats.py --split {split} --encoder clip \
 ```
 Put the generated data in the directory ```datasets/REVERIE/features```
 
-2. The room type codebook ```room_type_feats.h5``` has been providied at root directory
+2. The room type codebook ```room_type_feats.h5``` has been provided at root directory
 
 ### Data arrangement
 1. Make sure the ```datasets``` folder under root ```lad_src```
