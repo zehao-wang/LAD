@@ -6,7 +6,15 @@ Matterport3DSimulator docker env [link](https://github.com/peteanderson80/Matter
 
 ## Data preparation
 The data preparation including two step, preprocessing for image generation and token id extraction
+
 ### Preprocessing
+1. Generate imagined image of goal position 
+Set datapath for generating REVERIE or SOON in the ge_ins2img_feats.py first 
+then run : 
+```
+python ge_ins2img_feats.py 
+```
+Put the generated data 
 
 ### Data arrangement
 
@@ -37,14 +45,7 @@ mp3d
 ## Running scripts
 
 > Since ins2img consume too much disk space in our situition, for augmentation data in phase1, we do not include goal dreamer in the warmup training
-#### Generate instruction images using GLIDE
-## Generate imagined image of goal position 
-Set datapath for generating REVERIE or SOON in the ge_ins2img_feats.py first 
-then run : 
-```
-python ge_ins2img_feats.py 
-```
-Put hte generated data 
+
 #### Warmup stage - phase1 training with augmentation data for single-action prediction
 ```bash 
 cd warmup_src
