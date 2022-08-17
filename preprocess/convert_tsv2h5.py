@@ -4,7 +4,6 @@ import sys
 import numpy as np 
 import base64 
 import os 
-from ipdb import set_trace 
 from collections import defaultdict
 from tqdm import tqdm 
 

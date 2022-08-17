@@ -75,7 +75,7 @@ def transform_img(im):
 
 def build_tsv():
     # Set up the simulator 
-    dataset_path =  "/data/leuven/333/vsc33366/projects/datasets/mp3d_preprocess_imgs/v1/scans"
+    dataset_path =  "mp3d/v1/scans"
     sim = MatterSim.Simulator()
     sim.setCameraResolution(WIDTH, HEIGHT)
     sim.setCameraVFOV(math.radians(VFOV))
@@ -89,7 +89,7 @@ def build_tsv():
     # t_render = Timer()
     # t_net = Timer()
     print("Start loading model")
-    clip_model, preprocess = clip.load("/user/leuven/333/vsc33366/.cache/clip/ViT-L-14-336px.pt")
+    clip_model, preprocess = clip.load("ckpts/ViT-L-14-336px.pt")
     print("Finish loading model ")
 
     if os.path.exists(OUPUTFILE):
@@ -180,7 +180,7 @@ def get_feature_for_room_type(out_dir):
     path = '../datasets/REVERIE/features/mp3d_room_imgs'
     all_room_types = os.listdir(path)
     print("Start loading clip and resnet models")
-    clip_model, preprocess = clip.load("/user/leuven/333/vsc33366/.cache/clip/ViT-L-14-336px.pt") 
+    clip_model, preprocess = clip.load("ckpts/ViT-L-14-336px.pt") 
     imgnet_resnet = get_vision_model(model_name="imgnet_resnet152")
     imgnet_resnet = imgnet_resnet.cuda()
     print("Finish loading two models ! ")
