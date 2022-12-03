@@ -109,7 +109,7 @@ Credits to Shizhe Chen for the great baseline work [VLN-DUET](https://github.com
 ## License and Citation
 
 ```bibtex
-@InProceedings{Chen_2022_DUET,
+@InProceedings{VLN_LAD_2023,
     author    = {Li, Mingxiao and Wang, Zehao and Tuytelaars, Tinne and Moens, Marie-Francine},
     title     = {Layout-aware Dreamer for Embodied Referring Expression Grounding},
     booktitle = {AAAI},
