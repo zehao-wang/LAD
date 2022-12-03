@@ -1,6 +1,6 @@
 DATA_ROOT=../datasets
 timestamp=$(date +%m%d-%H%M%S)
-OUT_ROOT=./out
+OUT_ROOT=../out/REVERIE/experiments
 
 train_alg=dagger
 features=clip
@@ -15,10 +15,9 @@ seed=0 # default 0
 name=${train_alg}-${features}
 name=${name}-seed.${seed} #-${ngpus}gpus
 
-# session run_rever_rt_post
 outdir=${OUT_ROOT}/reverie_finetune # path to save logs
-# resumedir=${OUT_ROOT}/${intermediate_file_path}/ckpts/best_rgs_val_unseen
 
+warmup_ckpt=[phase2 best ckpt]
 
 flag="
   --root_dir ${DATA_ROOT}
@@ -74,7 +73,5 @@ flag="
 
 PYTHONPATH=../:$PYTHONPATH /usr/bin/python3 nav_obj.py $flag  \
   --tokenizer bert \
-  --bert_ckpt_file 'reverie/out/REVERIE/experiments/pretrain/fimgrt-cmt-clip-basic.rt.gd-init.lxmert-aug.speaker_dir_phase2/pt4.8w_dyfuse_warmup50000-0729-113942/nf_ndist/ckpts/model_step_16000.pt'  \
+  --bert_ckpt_file $warmup_ckpt \
   --eval_first
-
-

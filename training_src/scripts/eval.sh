@@ -1,6 +1,6 @@
 DATA_ROOT=../datasets
 timestamp=$(date +%m%d-%H%M%S)
-OUT_ROOT=./out
+OUT_ROOT=../out/REVERIE/experiments
 
 train_alg=dagger
 features=clip
@@ -15,9 +15,8 @@ seed=0 # default 0
 name=${train_alg}-${features}
 name=${name}-seed.${seed} #-${ngpus}gpus
 
-# session run_rever_rt_post
-outdir=${OUT_ROOT}/reverie_finetune # path to save logs
-resumedir=../../reverie/reverie_challange/ckpts/ckpt.v4.pt
+outdir=${OUT_ROOT}/eval # path to save logs
+resumedir=[path to the checkpoints]
 
 
 flag="

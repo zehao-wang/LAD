@@ -194,7 +194,7 @@ def train(args, train_envs, val_envs, rank=-1):
                 loss_str += " | "
                 
                 if env_name in best_val_spl:
-                    # select model by spl
+                    # select model by spl based on different split's metric
                     if score_summary['spl'] >= best_val_spl[env_name]['spl']:
                         best_val_spl[env_name]['spl'] = score_summary['spl']
                         best_val_spl[env_name]['sr'] = score_summary['sr']
@@ -223,10 +223,10 @@ def train(args, train_envs, val_envs, rank=-1):
                 write_to_record_file(env_name + ' | ' + best_val_spl[env_name]['state'], record_file)
 
             write_to_record_file("BEST RESULT TILL NOW BY SR", record_file)
-            for env_name in best_val_spl:
+            for env_name in best_val_sr:
                 write_to_record_file(env_name + ' | ' + best_val_sr[env_name]['state'], record_file) 
             
-            write_to_record_file("BEST RESULT TILL NOW BY SR", record_file)
+            write_to_record_file("BEST RESULT TILL NOW BY RGS", record_file)
             for env_name in best_val_rgs:
                 write_to_record_file(env_name + ' | ' + best_val_rgs[env_name]['state'], record_file) 
            

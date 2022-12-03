@@ -6,7 +6,7 @@ outdir=../out/REVERIE/experiments/pretrain/frt_gd_phase2
 rt_img_dir=../room_type_feats.h5
 
 # Phase 2 init ckpt
-phase_ckpt=../out/REVERIE/experiments/pretrain/frt_gd_phase1/ckpts/model_step_48000.pt
+phase_ckpt=../out/REVERIE/experiments/pretrain/frt_gd_phase1/ckpts/[your best phase1 ckpt file]
 
 # train
 PYTHONPATH="../":$PYTHONPATH /usr/bin/python3 -m torch.distributed.launch \
@@ -14,7 +14,7 @@ PYTHONPATH="../":$PYTHONPATH /usr/bin/python3 -m torch.distributed.launch \
     train.py --world_size ${NUM_GPUS} \
     --output_dir $outdir \
     --model_config config/reverie_obj_model_config.json \
-    --config config/reverie_pretrain_rt_gd_nodist.json \
+    --config config/reverie_pretrain_rt_gd.json \
     --use_rt_task \
     --vlnbert cmt \
     --use_clip_feat \

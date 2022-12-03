@@ -1,8 +1,15 @@
 # Layout-aware Dreamer for Embodied Referring Expression Grounding
 
+[Mingxiao Li*](https://www.kuleuven.be/wieiswie/en/person/00113732), [Zehao Wang*](https://homes.esat.kuleuven.be/~zwang), Tinne Tuytelaars, Marie-Francine Moens
+
+AAAI 2023 main conference
+
+[Paper](https://arxiv.org/abs/2212.00171)&nbsp;/ [BibTeX]()
 
 ## Environment
-Matterport3DSimulator docker env [link](https://github.com/peteanderson80/Matterport3DSimulator)
+Please setup Matterport3DSimulator docker env following [link](https://github.com/peteanderson80/Matterport3DSimulator)
+
+For missing packages, please check the corresponding version in ```requirements.txt```
 
 ## Data preparation
 The data preparation including two step, preprocessing for image generation and token id extraction
@@ -85,4 +92,11 @@ sh scripts/final_frt_gd_finetuning_stable.sh # need replace phase_ckpt in this s
 ```bash 
 cd training_src
 sh scripts/eval.sh # need replace resumedir in this script to best training result obtained above
+```
+NOTE: The checkpoint of LAD model trained on REVERIE dataset can be found [here](https://drive.google.com/drive/folders/177YBl9eNtPjmmB6E18LMAvFM6bh1keTa?usp=sharing)
+
+## License and Citation
+
+```bibtex
+
 ```

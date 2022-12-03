@@ -121,11 +121,11 @@ class Pretrainer(PretrainerBase):
         """ Phase 1 pretraining with augmentated data""" 
         self.model_config.pretrain_tasks = set(self.opts.train_datasets['REVERIE']['tasks_phase1'])
         if self.default_gpu:
-            save_training_meta(self.opts,'vit_aug_mlm.mrc.sap.og.rt/logs','vit_aug_mlm.mrc.sap.og.rt/ckpts')
-            TB_LOGGER.create(os.path.join(self.opts.output_dir, 'vit_aug_mlm.mrc.sap.og.rt', 'logs'))
+            save_training_meta(self.opts,'logs','ckpts')
+            TB_LOGGER.create(os.path.join(self.opts.output_dir,  'logs'))
             self.pbar = tqdm(total=self.opts.num_train_steps)
-            self.model_saver = ModelSaver(os.path.join(self.opts.output_dir, 'vit_aug_mlm.mrc.sap.og.rt', 'ckpts'))
-            add_log_to_file(os.path.join(self.opts.output_dir, 'vit_aug_mlm.mrc.sap.og.rt','logs', 'log.txt'))
+            self.model_saver = ModelSaver(os.path.join(self.opts.output_dir,  'ckpts'))
+            add_log_to_file(os.path.join(self.opts.output_dir, 'logs', 'log.txt'))
         else:
             LOGGER.disabled = True 
             self.pbar = NoOp()
@@ -142,7 +142,7 @@ class Pretrainer(PretrainerBase):
         if ckpt_path is not None:
             last_ckpt_of_aug = ckpt_path
         else:
-            aug_model_ckpt_path = os.path.join(self.opts.output_dir,'vit_aug_mlm.mrc.sap.og.rt','ckpts')
+            aug_model_ckpt_path = os.path.join(self.opts.output_dir,'ckpts')
             last_ckpt_of_aug = get_last_ckpts(aug_model_ckpt_path)
         print("Loading ckpt from ",last_ckpt_of_aug)
         print("\n\nLoading ckpt from ",last_ckpt_of_aug, file=sys.stderr)
