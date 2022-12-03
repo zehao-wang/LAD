@@ -97,13 +97,14 @@ NOTE: The checkpoint of LAD model trained on REVERIE dataset can be found [here]
 
 ## Acknowledgement
 Credits to Shizhe Chen for the great baseline work [VLN-DUET](https://github.com/cshizhe/VLN-DUET):
-
+```bibtex
 @InProceedings{Chen_2022_DUET,
     author    = {Chen, Shizhe and Guhur, Pierre-Louis and Tapaswi, Makarand and Schmid, Cordelia and Laptev, Ivan},
     title     = {Think Global, Act Local: Dual-scale Graph Transformer for Vision-and-Language Navigation},
     booktitle = {CVPR},
     year      = {2022}
 }
+```
 
 ## License and Citation
 
