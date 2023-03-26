@@ -95,8 +95,24 @@ sh scripts/eval.sh # need replace resumedir in this script to best training resu
 ```
 NOTE: The checkpoint of LAD model trained on REVERIE dataset can be found [here](https://drive.google.com/drive/folders/177YBl9eNtPjmmB6E18LMAvFM6bh1keTa?usp=sharing)
 
+## Acknowledgement
+Credits to Shizhe Chen for the great baseline work [VLN-DUET](https://github.com/cshizhe/VLN-DUET):
+```bibtex
+@InProceedings{Chen_2022_DUET,
+    author    = {Chen, Shizhe and Guhur, Pierre-Louis and Tapaswi, Makarand and Schmid, Cordelia and Laptev, Ivan},
+    title     = {Think Global, Act Local: Dual-scale Graph Transformer for Vision-and-Language Navigation},
+    booktitle = {CVPR},
+    year      = {2022}
+}
+```
+
 ## License and Citation
 
 ```bibtex
-
+@InProceedings{VLN_LAD_2023,
+    author    = {Li, Mingxiao and Wang, Zehao and Tuytelaars, Tinne and Moens, Marie-Francine},
+    title     = {Layout-aware Dreamer for Embodied Referring Expression Grounding},
+    booktitle = {AAAI},
+    year      = {2023}
+}
 ```
