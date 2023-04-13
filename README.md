@@ -20,6 +20,7 @@ The data preparation including two step, preprocessing for image generation and 
 2. Since we mainly use CLIP as our visual feature encoder, please follow the instruction in [link](https://github.com/openai/CLIP) and make sure to load ```ViT-L-14-336px.pt``` during training. Recommand to put in ```ckpts/ViT-L-14-336px.pt```
 3. Make sure to install [GLIDE](https://github.com/openai/glide-text2im) for generation 
 4. Download Matterport3D dataset from [link](https://niessner.github.io/Matterport/)
+5. Additional data from lad is released at [link](https://drive.google.com/drive/folders/10xrt1iv38UC3mS0JtmoKhEMPItJ3Atbz?usp=share_link)
 
 
 ### Preprocessing
@@ -93,7 +94,7 @@ sh scripts/final_frt_gd_finetuning_stable.sh # need replace phase_ckpt in this s
 cd training_src
 sh scripts/eval.sh # need replace resumedir in this script to best training result obtained above
 ```
-NOTE: The checkpoint of LAD model trained on REVERIE dataset can be found [here](https://drive.google.com/drive/folders/177YBl9eNtPjmmB6E18LMAvFM6bh1keTa?usp=sharing)
+NOTE: The checkpoints of LAD model after warmup stage 2 and final LAD model trained on REVERIE dataset can be found [here](https://drive.google.com/drive/folders/177YBl9eNtPjmmB6E18LMAvFM6bh1keTa?usp=sharing)
 
 ## Acknowledgement
 Credits to Shizhe Chen for the great baseline work [VLN-DUET](https://github.com/cshizhe/VLN-DUET):
